@@ -34,7 +34,7 @@ public class CorreoConfirmacionSeleccionJugueteImpl implements CorreoConfirmacio
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public int correoConfirmacionSeleccionJuguete(@QueryParam("nombreUsuario") String nombreUsuario, @QueryParam("nombreHijo") String nombreHijo,
-             @QueryParam("codigoInventario") String codigoInventario, @QueryParam("idPedido") int idPedido,
+             @QueryParam("codigoInventario") String codigoInventario, @QueryParam("ticket") String ticket,
              @QueryParam("nombreJuguete") String nombreJuguete, @QueryParam("usuario") String usuario, @QueryParam("email") String email) throws Exception {
 
         CorreoDAOImpl correoDAO = new CorreoDAOImpl();
@@ -43,7 +43,7 @@ public class CorreoConfirmacionSeleccionJugueteImpl implements CorreoConfirmacio
         user.setUsuario(usuario);
         pedido.setNombreHijo(nombreHijo);
         inventario.setCodigo(codigoInventario);
-        pedido.setIdPedido(idPedido);
+        pedido.setTicket(ticket);
         inventario.setNombre(nombreJuguete);
         user.setEmail(email);
  

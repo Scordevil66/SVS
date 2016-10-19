@@ -10,7 +10,7 @@ package co.com.salavirtual.servicio;
  * @author SISTEMAS
  */
 public interface CorreoConfirmacionSeleccionJuguete {
-     public int correoConfirmacionSeleccionJuguete( String nombreUsuario  ,String nombreHijo , String codigoInventario , int idPedido , String nombreJuguete, String usuario, String email)throws Exception;
+     public int correoConfirmacionSeleccionJuguete( String nombreUsuario  ,String nombreHijo , String codigoInventario , String ticket , String nombreJuguete, String usuario, String email)throws Exception;
     
     
 }

@@ -471,7 +471,7 @@ public class CorreoDAOImpl implements CorreoDAO {
                     + "		   <div class=\"texto\">\n"
                     + "		  \n"
                     + "			<fieldset>   <br><h4>Por favor imprimir y Presentar el siguiente comprobante para poder reclamar su presente.  <br>\n"
-                    + "						<br><h3>Código Único del Regalo: "+pedido.getIdPedido()+" </h3>\n"
+                    + "						<br><h3>Código Único del Regalo: "+pedido.getTicket()+" </h3>\n"
                     + "			 </div>\n"
                     + "			</fieldset>\n"
                     + "			  </div>\n"
