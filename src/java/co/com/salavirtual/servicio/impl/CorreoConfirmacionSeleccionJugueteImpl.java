@@ -41,11 +41,12 @@ public class CorreoConfirmacionSeleccionJugueteImpl implements CorreoConfirmacio
         
         user.setNombre(nombreUsuario);
         user.setUsuario(usuario);
-        pedido.setNombreHijo(nombreHijo);
-        inventario.setCodigo(codigoInventario);
-        pedido.setTicket(ticket);
-        inventario.setNombre(nombreJuguete);
         user.setEmail(email);
+        pedido.setNombreHijo(nombreHijo);
+         pedido.setTicket(ticket);
+        inventario.setCodigo(codigoInventario);
+        inventario.setNombre(nombreJuguete);
+        
  
         return correoDAO.correoConfirmacionSeleccionJuguete(user, inventario, pedido);
     }
