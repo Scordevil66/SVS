@@ -192,9 +192,29 @@ public class EmpresaDAOImpl implements EmpresaDAO {
         int resultado = 0;
         try {
             try {
-                String sql = "DELETE FROM `salavirtual`.`empresa` "
-                        + "WHERE idEmpresa = " + idEmpresa + ";";
+                String sql = "SET SQL_SAFE_UPDATES = 0;";
+                
+                String sql1 = "Delete from salavirtual.votacion where idInventario in (select idInventario from salavirtual.inventario where idEmpresa = "+idEmpresa+");";
+                
+                /* elimina todo el inventario de la empresa*/
+                String sql2 ="DELETE FROM salavirtual.inventario where idEmpresa = "+idEmpresa+";";
+                
+                /* elimina todos los pedidos de la empresa*/
+                String sql3 ="DELETE FROM salavirtual.pedido where idUsuario in (select idusuario from salavirtual.usuario where idEmpresa =  "+idEmpresa+");";
+                
+                String sql4 ="DELETE FROM salavirtual.usuario where idEmpresa = "+idEmpresa+";";
+                
+                String sql5 ="Delete from salavirtual.comite where idEmpresa = "+idEmpresa+";";
+
+                String sql6 ="DELETE FROM `salavirtual`.`empresa` WHERE idEmpresa = "+idEmpresa+";";
+
                 st.execute(sql);
+                st.execute(sql1);
+                st.execute(sql2);
+                st.execute(sql3);
+                st.execute(sql4);
+                st.execute(sql5);
+                st.execute(sql6);
                 resultado = 1;
             } catch (SQLException e) {
                 resultado = 0;
@@ -225,7 +245,7 @@ public class EmpresaDAOImpl implements EmpresaDAO {
 
                 } else if (idEmpresa > 0 && !(nombre.trim().equals(""))) {
                     sql = "SELECT idEmpresa, nombre, direccion, nit, telefono, correo, urlLogo, urlBanner, idUsuario, comite FROM empresa "
-                            + "WHERE idEmpresa = " + idEmpresa +" and nombre Like '" + nombre.trim() + "%';";
+                            + "WHERE idEmpresa = " + idEmpresa + " and nombre Like '" + nombre.trim() + "%';";
                 }
                 ResultSet rs = null;
                 rs = st.executeQuery(sql);
