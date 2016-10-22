@@ -19,8 +19,8 @@ import java.util.logging.Logger;
 public class ConexionSQL {
 
 //    static String clave = "yU7eywfXILoZjtaD";
-    static String clave = "Sant_123s";
-//    static String clave = "12345678";
+//    static String clave = "Sant_123s";
+    static String clave = "12345678";
     static Statement ST = null;
     static Connection cn = null;
 
@@ -38,8 +38,8 @@ public class ConexionSQL {
             }
             // RUTA DE LA BASE DE DATOS
             //  149.56.93.6
-//            String url = "jdbc:mysql://localhost/salavirtual";
-            String url = "jdbc:mysql://192.169.150.97:3306/salavirtual";
+            String url = "jdbc:mysql://localhost/salavirtual";
+//            String url = "jdbc:mysql://192.169.150.97:3306/salavirtual";
             //  String url = "jdbc:postgresql://localhost:5432/lavapp";
             //   String url = "jdbc:postgresql://192.168.100.251:5432/lavapp";
             // CONECCION A LA BASE DE DATOS
