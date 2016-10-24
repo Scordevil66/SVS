@@ -374,98 +374,75 @@ public class CorreoDAOImpl implements CorreoDAO {
     public int correoSeleccionJuguete(Usuario_TO usuario, Empresa_TO empresa) {
         int valor = 0;
 
-        try {
-            MimeMessage message = new MimeMessage(session);
-            //quien envia
-            message.setFrom(new InternetAddress("sac.juguetes@gmail.com"));
-            // a donde se envia
-            message.addRecipient(
-                    Message.RecipientType.TO,
-                    new InternetAddress(usuario.getEmail()));
-            message.setSubject("Seleccion Juguetes"); //asunto
-            String mensajehtml = "<html>\n"
-                    + "	<head>\n"
-                    + "		<meta charset=\"utf-8\">\n"
-                    + "		<meta name=\"viewport\" content=\"width=device-width, user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum=1.0\">\n"
-                    + "		\n"
-                    + "		<title></title>\n"
-                    + "	</head>\n"
-                    + "	\n"
-                    + "	<body>\n"
-                    + "			<center>\n"
-                    + "			<header>\n"
-                    + "			<div class=\"contenido\" align=\"left\">	\n"
-                    + "			<br>Buenos días: " + usuario.getNombre() + "</br>\n"
-                    + "		    <br>El siguiente mensaje de correo es para informar que su acceso a la sala virtual para la elección del regalo de XXXXXXXX(Nombre del hijo o hija), XXXXXXXX(nombre del segundo hijo o hija si lo tiene; debe nombrar N cantidad de hijos que tiene esa persona) se encuentra habilitado.  </br>\n"
-                    + "		    <br> Haga click o copie el siguiente enlace para acceder a su sala virtual:</br>\n"
-                    + "		    <br>\n"
-                    + "		    www.XXXXXXXXX .com\n"
-                    + "		    <br>\n"
-                    + "		    <br>\n"
-                    + "		    Sus datos de acceso son: <br><br>\n"
-                    + "			Usuario: " + usuario.getUsuario() + " <br>\n"
-                    + "			Login: " + usuario.getContrasena() + " \n"
-                    + "			<br>\n"
-                    + "		    <br>\n"
-                    + "		   <div class=\"texto\">\n"
-                    + "		  \n"
-                    + "			<fieldset>   <br><h4>Con estos datos tendrá acceso al entorno de la Sala virtual de " + empresa.getNombre() + " donde podrá hacer su selección. Para nosotros es muy importante la satisfacción y felicidad de su(s) Hijo(s) y su familia. <br>\n"
-                    + "			 </div>\n"
-                    + "			</fieldset>\n"
-                    + "			  </div>\n"
-                    + "			  <footer>\n"
-                    + "			  	<h5>\n"
-                    + "			  		Cualquier duda o inquietud respecto al acceso o al uso de la Sala Virtual  no dude en comunicarse al área de Soporte al Cliente; allí daremos solución a todas sus dudas o inconvenientes. Puede contactarnos a través de los siguientes medios:  <br> Correo electrónico: sac.juguetes@distribuidoraelfaro.co<br>	Celular: 3186619233\n"
-                    + "			  	</h5>\n"
-                    + "			  </footer>	\n"
-                    + "			\n"
-                    + "			</header>\n"
-                    + "			</center>\n"
-                    + "	</body>\n"
-                    + "					<style type=\"text/css\">\n"
-                    + "						body{\n"
-                    + "							font-family: arial;\n"
-                    + "							background-color: gray 800px;\n"
-                    + "						    margin-top:80px;\n"
-                    + "							padding:90px;\n"
-                    + "							}\n"
-                    + "						.contenido{\n"
-                    + "\n"
-                    + "							align-content: left;\n"
-                    + "							size: 600px 800px;\n"
-                    + "							background-color: rgba(245, 237, 200, 0.33);\n"
-                    + "							}\n"
-                    + "						.texto{\n"
-                    + "							font-family: cursive;\n"
-                    + "						}	\n"
-                    + "						h5{\n"
-                    + "							text-shadow: 3em;\n"
-                    + "\n"
-                    + "						}\n"
-                    + "					</style>\n"
-                    + "</html>"; //Mensaje
-            message.setContent(mensajehtml, "text/html");
-            //            message.setText("Señor(a),"
-            //        + "\n"
-            //         + "Le confirmamos que su registro al sistema SMS Renta fue exitoso, y le damos la bienvenida a nuestra familia. \n"
-            //           + "Esperamos que nuestro servicio sea de su total agrado.\n"
-            //            + "Los datos de sesion para acceder al sistema son:.\n"
-            //            + "Nombre de sesion o email: \n"
-            //             + "Contraseña:  \n"
-            //            + "Por favor no olvide editar su perfil para crear un nombre de sesion y contraseña personalizados.\n"
-            //             + "Atentamente, SMS Renta");
-            Transport t = session.getTransport("smtp");
-            t.connect("smtp.gmail.com", (String) properties.get("mail.smtp.user"), "sac.123456789"); //Datos de conexion del correo de envio
-            t.sendMessage(message, message.getAllRecipients());
-            t.close();
-            valor++;
-        } catch (MessagingException me) {
-            me.getMessage();
-            System.out.println("error: " + me.getMessage());
-            //Aqui se deberia o mostrar un mensaje de error o en lugar
-            //de no hacer nada con la excepcion, lanzarla para que el modulo
-            //superior la capture y avise al usuario con un popup, por ejemplo.           
-        }
+        String login = "sac.juguetes@gmail.com";
+        String password = "sac.123456789";
+        String to = usuario.getEmail();
+        String subject = "Seleccion Juguetes";
+        String body = "<html>\n"
+                + "	<head>\n"
+                + "		<meta charset=\"utf-8\">\n"
+                + "		<meta name=\"viewport\" content=\"width=device-width, user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum=1.0\">\n"
+                + "		\n"
+                + "		<title></title>\n"
+                + "	</head>\n"
+                + "	\n"
+                + "	<body>\n"
+                + "			<center>\n"
+                + "			<header>\n"
+                + "			<div class=\"contenido\" align=\"left\">	\n"
+                + "			<br>Buenos días: " + usuario.getNombre() + "</br>\n"
+                + "		    <br>El siguiente mensaje de correo es para informar que su acceso a la sala virtual para la elección del regalo de XXXXXXXX(Nombre del hijo o hija), XXXXXXXX(nombre del segundo hijo o hija si lo tiene; debe nombrar N cantidad de hijos que tiene esa persona) se encuentra habilitado.  </br>\n"
+                + "		    <br> Haga click o copie el siguiente enlace para acceder a su sala virtual:</br>\n"
+                + "		    <br>\n"
+                + "		    www.XXXXXXXXX .com\n"
+                + "		    <br>\n"
+                + "		    <br>\n"
+                + "		    Sus datos de acceso son: <br><br>\n"
+                + "			Usuario: " + usuario.getUsuario() + " <br>\n"
+                + "			Login: " + usuario.getContrasena() + " \n"
+                + "			<br>\n"
+                + "		    <br>\n"
+                + "		   <div class=\"texto\">\n"
+                + "		  \n"
+                + "			<fieldset>   <br><h4>Con estos datos tendrá acceso al entorno de la Sala virtual de " + empresa.getNombre() + " donde podrá hacer su selección. Para nosotros es muy importante la satisfacción y felicidad de su(s) Hijo(s) y su familia. <br>\n"
+                + "			 </div>\n"
+                + "			</fieldset>\n"
+                + "			  </div>\n"
+                + "			  <footer>\n"
+                + "			  	<h5>\n"
+                + "			  		Cualquier duda o inquietud respecto al acceso o al uso de la Sala Virtual  no dude en comunicarse al área de Soporte al Cliente; allí daremos solución a todas sus dudas o inconvenientes. Puede contactarnos a través de los siguientes medios:  <br> Correo electrónico: sac.juguetes@distribuidoraelfaro.co<br>	Celular: 3186619233\n"
+                + "			  	</h5>\n"
+                + "			  </footer>	\n"
+                + "			\n"
+                + "			</header>\n"
+                + "			</center>\n"
+                + "	</body>\n"
+                + "					<style type=\"text/css\">\n"
+                + "						body{\n"
+                + "							font-family: arial;\n"
+                + "							background-color: gray 800px;\n"
+                + "						    margin-top:80px;\n"
+                + "							padding:90px;\n"
+                + "							}\n"
+                + "						.contenido{\n"
+                + "\n"
+                + "							align-content: left;\n"
+                + "							size: 600px 800px;\n"
+                + "							background-color: rgba(245, 237, 200, 0.33);\n"
+                + "							}\n"
+                + "						.texto{\n"
+                + "							font-family: cursive;\n"
+                + "						}	\n"
+                + "						h5{\n"
+                + "							text-shadow: 3em;\n"
+                + "\n"
+                + "						}\n"
+                + "					</style>\n"
+                + "</html>";
+
+        
+        GmailTest.testSendDirecto(login, password, to, subject, body);
+        
         return valor;
 
     }
