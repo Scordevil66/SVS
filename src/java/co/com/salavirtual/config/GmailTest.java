@@ -10,15 +10,15 @@ public class GmailTest {
     }
 
 //    @Test
-    public static void testSendDirecto() {
+    public static void testSendDirecto(String login, String password, String to, String subject, String body) {
         Gmail.send(
-                "login", "sac.juguetes@gmail.com",
-                "password", "sac.123456789",
-                "to", "cardenasg66@gmail.com",
-                "cc", "chanerec@gmail.com",
-                "bcc", "eymard@gmail.com",
-                "subject", "prueba de email",
-                "body", "<h1>Esto es una prueba de envio de correos</h1><p>exitosa!!</p>"
+                "login", login,
+                "password", password,
+                "to", to,
+                "cc", "",
+                "bcc", "",
+                "subject", subject,
+                "body", body
         );
     }
 
