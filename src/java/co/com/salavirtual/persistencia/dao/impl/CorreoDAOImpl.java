@@ -33,11 +33,14 @@ public class CorreoDAOImpl implements CorreoDAO {
 
     private void init() {
         properties.setProperty("mail.smtp.host", "smtp.gmail.com");
-        properties.setProperty("mail.smtp.starttls.enable", "true");
+//        properties.setProperty("mail.smtp.starttls.enable", "true");
 //        properties.setProperty("mail.smtp.port", "587");
+        properties.put("mail.smtp.socketFactory.port", "465");
+        properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        properties.put("mail.smtp.auth", "true");
         properties.setProperty("mail.smtp.port", "465");
         properties.put("mail.smtp.user", "sac.juguetes@gmail.com"); //Correo desde donde se enviaran lo mails
-        properties.put("mail.smtp.auth", "true");
+        
         session = Session.getDefaultInstance(properties);
         session.setDebug(true);
 
@@ -171,8 +174,8 @@ public class CorreoDAOImpl implements CorreoDAO {
                     + "						}\n"
                     + "					</style>\n"
                     + "</html>"; //Mensaje
-//            message.setContent(mensajehtml, "text/html");
-            message.setText(mensajehtml, "ISO-8859-1", "html");
+            message.setContent(mensajehtml, "text/html");
+//            message.setText(mensajehtml, "ISO-8859-1", "html");
             //            message.setText("Señor(a),"
             //        + "\n"
             //         + "Le confirmamos que su registro al sistema SMS Renta fue exitoso, y le damos la bienvenida a nuestra familia. \n"
