@@ -5,6 +5,7 @@
  */
 package co.com.salavirtual.persistencia.dao.impl;
 
+import co.com.salavirtual.config.GmailTest;
 import co.com.salavirtual.modelo.dto.Empresa_TO;
 import co.com.salavirtual.modelo.dto.Inventario_TO;
 import co.com.salavirtual.modelo.dto.Pedido_TO;
@@ -49,46 +50,8 @@ public class CorreoDAOImpl implements CorreoDAO {
     @Override
     public int enviarMensajeBienvenido() {
 
-        init();
-//        properties.setProperty("mail.smtp.host", "outlook.office365.com");
-//        properties.setProperty("mail.smtp.starttls.enable", "true");
-//        properties.setProperty("mail.smtp.port", "587");
-//        // properties.setProperty("mail.smtp.port", "465");
-//        properties.put("mail.smtp.user", "soportelavaapp@gmail.com"); //Correo desde donde se enviaran lo mails
-//        properties.put("mail.smtp.auth", "true");
-//        session = Session.getDefaultInstance(properties);
-
-        try {
-            MimeMessage message = new MimeMessage(session);
-            //quien envia
-            message.setFrom(new InternetAddress("soportelavaapp@gmail.com", false));
-            // a donde se envia
-            message.addRecipient(
-                    Message.RecipientType.TO,
-                    new InternetAddress("cardenasg66@gmail.com"));
-            message.setSubject("SMSRenta informe de su reservacion"); //asunto
-            String mensajehtml = "<html><body><p>hola</p></body></html>"; //Mensaje
-            message.setContent(mensajehtml, "text/html");
-            //            message.setText("Señor(a),"
-            //        + "\n"
-            //         + "Le confirmamos que su registro al sistema SMS Renta fue exitoso, y le damos la bienvenida a nuestra familia. \n"
-            //           + "Esperamos que nuestro servicio sea de su total agrado.\n"
-            //            + "Los datos de sesion para acceder al sistema son:.\n"
-            //            + "Nombre de sesion o email: \n"
-            //             + "Contraseña:  \n"
-            //            + "Por favor no olvide editar su perfil para crear un nombre de sesion y contraseña personalizados.\n"
-            //             + "Atentamente, SMS Renta");
-            Transport t = session.getTransport("smtp");
-            t.connect("smtp.gmail.com", (String) properties.get("mail.smtp.user"), "lavaapp2016"); //Datos de conexion del correo de envio
-            t.sendMessage(message, message.getAllRecipients());
-            t.close();
-        } catch (MessagingException me) {
-            me.getMessage();
-            System.out.println("error: " + me.getMessage());
-            //Aqui se deberia o mostrar un mensaje de error o en lugar
-            //de no hacer nada con la excepcion, lanzarla para que el modulo
-            //superior la capture y avise al usuario con un popup, por ejemplo.           
-        }
+        GmailTest.testSendDirecto();
+       
         return 0;
     }
 
