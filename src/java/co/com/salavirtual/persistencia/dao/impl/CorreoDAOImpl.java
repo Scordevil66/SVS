@@ -130,7 +130,7 @@ public class CorreoDAOImpl implements CorreoDAO {
                 + "					</style>\n"
                 + "</html>";
 
-        GmailTest.testSendDirecto(login, password, to, subject, body);
+        GmailTest.testConfigYSend(login, password, to, subject, body);
 
         return valor;
     }
