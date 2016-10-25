@@ -293,7 +293,7 @@ public class CorreoDAOImpl implements CorreoDAO {
         int valor = 0;
 
         String to = usuario.getEmail();
-        String subject = "Importante! Recuerde realizar su Votación";
+        String subject = "Importante! Recuerde Realizar Su Votación";
         String body = "			<center>\n"
                 + "			<div align=\"left\">	\n"
                 + "			<br>Buenos días: " + usuario.getNombre() + " </br>\n"
@@ -303,14 +303,15 @@ public class CorreoDAOImpl implements CorreoDAO {
                 + "                 http://107.180.72.83/SalaVirtual/"
                 + "		    <br>\n"
                 + "		    <br>\n"
-                + "		    Sus datos de acceso son: <br><br>\n"
-                + "			Usuario: " + usuario.getUsuario() + "<br>\n"
+//                + "		    Sus datos de acceso son: <br><br>\n"
+//                + "			Usuario: " + usuario.getUsuario() + "<br>\n"
 //                + "			Contraseña: " + usuario.getContrasena() + "\n"
                 + "			<br>\n"
                 + "		    <br>\n"
                 + "		   <div \n"
                 + "		  \n"
-                + "		<fieldset>   <br><h4>Con estos datos tendrá acceso al entorno de la Sala virtual donde usted como parte del comité de selección de regalos podrá visualizar y votar por cada una de las opciones que allí se presentan para los diferentes rangos de edad en cada género.  <br>\n"
+                + "		<fieldset>   "
+//                + "<br><h4>Con estos datos tendrá acceso al entorno de la Sala virtual donde usted como parte del comité de selección de regalos podrá visualizar y votar por cada una de las opciones que allí se presentan para los diferentes rangos de edad en cada género.  <br>\n"
                 + "\n"
                 + "			  <br>Por favor, otorgue su puntuación a cada una de las referencias allí presentadas; recuerde que la felicidad y la satisfacción de los colaboradores y sus hijos es responsabilidad nuestra.  <br>\n"
                 + "\n"
