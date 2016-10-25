@@ -25,5 +25,7 @@ public interface CorreoDAO {
     public int correoConfirmacionSeleccionJuguete(Usuario_TO usuario,  Inventario_TO inventario,  Pedido_TO pedido);
     public int correoSeleccionJuguete(Usuario_TO usuario,  Empresa_TO empresa);
     
+    public int correoRestantesPorVotar(Usuario_TO usuario);
+    
     
 }

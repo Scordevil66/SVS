@@ -194,7 +194,7 @@ public class CorreoDAOImpl implements CorreoDAO {
                 + "\n"
                 + "			  <br>Por favor, otorgue su puntuación a cada una de las referencias allí presentadas; recuerde que la felicidad y la satisfacción de los colaboradores de " + empresa.getNombre() + "  y sus hijos es responsabilidad nuestra.  <br>\n"
                 + "\n"
-//                + "			   <br>Podrá acceder a diferentes reportes que le permitirán hacer seguimiento al proceso de selección de sus colaboradores: regalo más escogido en   general, regalo más votado por rango de edad y género, cantidad de personas que ya han hecho su selección y cuales no. Enviar notificaciones para invitar o recordar a sus afiliados seleccionar su(s) regalos; entre otras funciones. </h4> <br>\n"
+                //                + "			   <br>Podrá acceder a diferentes reportes que le permitirán hacer seguimiento al proceso de selección de sus colaboradores: regalo más escogido en   general, regalo más votado por rango de edad y género, cantidad de personas que ya han hecho su selección y cuales no. Enviar notificaciones para invitar o recordar a sus afiliados seleccionar su(s) regalos; entre otras funciones. </h4> <br>\n"
                 + "			  </div>\n"
                 + "			</fieldset>\n"
                 + "			  </div>\n"
@@ -256,7 +256,7 @@ public class CorreoDAOImpl implements CorreoDAO {
         String body = "			<center>\n"
                 + "			<div align=\"left\">	\n"
                 + "			<br>Buenos días: " + usuario.getNombre() + "</br>\n"
-//                + "		    <br>El siguiente mensaje de correo es para informar que su acceso a la sala virtual para la elección del regalo de XXXXXXXX(Nombre del hijo o hija), XXXXXXXX(nombre del segundo hijo o hija si lo tiene; debe nombrar N cantidad de hijos que tiene esa persona) se encuentra habilitado.  </br>\n"
+                //                + "		    <br>El siguiente mensaje de correo es para informar que su acceso a la sala virtual para la elección del regalo de XXXXXXXX(Nombre del hijo o hija), XXXXXXXX(nombre del segundo hijo o hija si lo tiene; debe nombrar N cantidad de hijos que tiene esa persona) se encuentra habilitado.  </br>\n"
                 + "		    <br>El siguiente mensaje de correo es para informar que su acceso a la sala virtual para la elección del regalo de su(s) hijo(s) se encuentra habilitado.  </br>\n"
                 + "		    <br> Haga click o copie el siguiente enlace para acceder a su sala virtual:</br>\n"
                 + "		    <br>\n"
@@ -287,5 +287,51 @@ public class CorreoDAOImpl implements CorreoDAO {
         return valor;
 
     }
+
+    @Override
+    public int correoRestantesPorVotar(Usuario_TO usuario) {
+        int valor = 0;
+
+        String to = usuario.getEmail();
+        String subject = "Importante! Recuerde realizar su Votación";
+        String body = "			<center>\n"
+                + "			<div align=\"left\">	\n"
+                + "			<br>Buenos días: " + usuario.getNombre() + " </br>\n"
+                + "		    <br> El siguiente mensaje de correo es para informar que su acceso a la sala virtual para la votación de regalos por parte del comité se ha sido creado. </br>\n"
+                + "		    <br> Haga click o copie el siguiente enlace para acceder a su sala virtual:</br>\n"
+                + "		    <br>\n"
+                + "                 http://107.180.72.83/SalaVirtual/"
+                + "		    <br>\n"
+                + "		    <br>\n"
+                + "		    Sus datos de acceso son: <br><br>\n"
+                + "			Usuario: " + usuario.getUsuario() + "<br>\n"
+                + "			Contraseña: " + usuario.getContrasena() + "\n"
+                + "			<br>\n"
+                + "		    <br>\n"
+                + "		   <div \n"
+                + "		  \n"
+                + "		<fieldset>   <br><h4>Con estos datos tendrá acceso al entorno de la Sala virtual donde usted como parte del comité de selección de regalos podrá visualizar y votar por cada una de las opciones que allí se presentan para los diferentes rangos de edad en cada género.  <br>\n"
+                + "\n"
+                + "			  <br>Por favor, otorgue su puntuación a cada una de las referencias allí presentadas; recuerde que la felicidad y la satisfacción de los colaboradores y sus hijos es responsabilidad nuestra.  <br>\n"
+                + "\n"
+                //                + "			   <br>Podrá acceder a diferentes reportes que le permitirán hacer seguimiento al proceso de selección de sus colaboradores: regalo más escogido en   general, regalo más votado por rango de edad y género, cantidad de personas que ya han hecho su selección y cuales no. Enviar notificaciones para invitar o recordar a sus afiliados seleccionar su(s) regalos; entre otras funciones. </h4> <br>\n"
+                + "			  </div>\n"
+                + "			</fieldset>\n"
+                + "			  </div>\n"
+                + "			  <footer>\n"
+                + "			  	<h5>\n"
+                + "			  		Cualquier duda o inquietud no dude en comunicarse al área de Soporte al Cliente; allí daremos solución a todas sus dudas o inconvenientes. Puede contactarnos a través de los siguientes medios: <br> Correo electrónico: sac.juguetes@distribuidoraelfaro.co<br>	Celular: 3186619233\n"
+                + "			  	</h5>\n"
+                + "			  </footer>	\n"
+                + "			\n"
+                + "			</center>\n";
+
+        GmailTest.testSendDirecto(login, password, to, subject, body);
+
+        return valor;
+
+    }
+
+    
 
 }
