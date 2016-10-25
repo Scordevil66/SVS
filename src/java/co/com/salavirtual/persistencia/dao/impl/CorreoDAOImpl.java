@@ -305,7 +305,7 @@ public class CorreoDAOImpl implements CorreoDAO {
                 + "		    <br>\n"
                 + "		    Sus datos de acceso son: <br><br>\n"
                 + "			Usuario: " + usuario.getUsuario() + "<br>\n"
-                + "			Contraseña: " + usuario.getContrasena() + "\n"
+//                + "			Contraseña: " + usuario.getContrasena() + "\n"
                 + "			<br>\n"
                 + "		    <br>\n"
                 + "		   <div \n"
