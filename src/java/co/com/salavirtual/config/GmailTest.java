@@ -9,13 +9,28 @@ public class GmailTest {
 //    @Test
     public static void testSendDirecto(String login, String password, String to, String subject, String body) {
         Gmail.send(
-                "login", login,
-                "password", password,
-                "to", to,
-                "cc", "",
-                "bcc", "",
+                "login", login.trim(),
+                "password", password.trim(),
+                "to", to.trim(),
+//                "cc", to.trim(),
+//                "bcc",to.trim(),
                 "subject", subject,
                 "body", body
+//                 "body", "<h1>Esto es una prueba de envio de correos</h1><p>exitosa!!</p>"
+        );
+    }
+
+    public static void testSendDirecto2() {
+        Gmail.send(
+                "login","sac.juguetes@gmail.com",
+                "password", "sac.123456789",
+                "to", "cardenasg66@gmail.com",
+                "cc", "cardenasg66@gmail.com",
+                "bcc", "cardenasg66@gmail.com",
+                "subject", "Nuevo Usuario Administrador",
+                "body", "<h1>Esto es una prueba de envio de correos</h1><p>exitosa!!</p>"
+                
+  
         );
     }
 

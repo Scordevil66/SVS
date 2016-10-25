@@ -43,12 +43,12 @@ public class Gmail {
                 case "to":
                     Gmail.to = valueConfig;
                     break;
-                case "cc":
-                    Gmail.cc = valueConfig;
-                    break;
-                case "bcc":
-                    Gmail.bcc = valueConfig;
-                    break;
+//                case "cc":
+//                    Gmail.cc = valueConfig;
+//                    break;
+//                case "bcc":
+//                    Gmail.bcc = valueConfig;
+//                    break;
                 case "title":
                 case "subject":
                     Gmail.subject = valueConfig;
