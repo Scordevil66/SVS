@@ -8,7 +8,6 @@ package co.com.salavirtual.servicio.impl;
 import co.com.salavirtual.modelo.dto.Usuario_TO;
 import co.com.salavirtual.persistencia.dao.impl.VotacionDAOImpl;
 import co.com.salavirtual.servicio.ValidarQuienNoVoto;
-import co.com.salavirtual.servicio.ValidarQuienVoto;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.ws.rs.GET;
