@@ -36,8 +36,9 @@ public class CorreoVotacionImpl implements CorreoVotacion  {
         
         user.setNombre(nombreUsuario);
         emp.setNombre(empresa);
-        user.setEmail(usuario);
+        user.setEmail(email);
         user.setContrasena(contrasena);
+        user.setUsuario(usuario);
        
 
         return correoDAO.correoVotacion(user, emp);

@@ -335,6 +335,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
                 throw e;
             }
         } catch (Exception e) {
+            resultado = 0;
             throw e;
         } finally {
             ConexionSQL.CerrarConexion();
