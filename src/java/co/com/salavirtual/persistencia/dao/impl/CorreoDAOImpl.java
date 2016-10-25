@@ -194,7 +194,7 @@ public class CorreoDAOImpl implements CorreoDAO {
                 + "\n"
                 + "			  <br>Por favor, otorgue su puntuación a cada una de las referencias allí presentadas; recuerde que la felicidad y la satisfacción de los colaboradores de " + empresa.getNombre() + "  y sus hijos es responsabilidad nuestra.  <br>\n"
                 + "\n"
-                + "			   <br>Podrá acceder a diferentes reportes que le permitirán hacer seguimiento al proceso de selección de sus colaboradores: regalo más escogido en   general, regalo más votado por rango de edad y género, cantidad de personas que ya han hecho su selección y cuales no. Enviar notificaciones para invitar o recordar a sus afiliados seleccionar su(s) regalos; entre otras funciones. </h4> <br>\n"
+//                + "			   <br>Podrá acceder a diferentes reportes que le permitirán hacer seguimiento al proceso de selección de sus colaboradores: regalo más escogido en   general, regalo más votado por rango de edad y género, cantidad de personas que ya han hecho su selección y cuales no. Enviar notificaciones para invitar o recordar a sus afiliados seleccionar su(s) regalos; entre otras funciones. </h4> <br>\n"
                 + "			  </div>\n"
                 + "			</fieldset>\n"
                 + "			  </div>\n"
