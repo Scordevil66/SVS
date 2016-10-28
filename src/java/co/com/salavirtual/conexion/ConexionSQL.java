@@ -39,7 +39,7 @@ public class ConexionSQL {
             // RUTA DE LA BASE DE DATOS
             //  149.56.93.6
 //            String url = "jdbc:mysql://localhost/salavirtual";
-            String url = "jdbc:mysql://192.169.150.97:3306/salavirtual";
+            String url = "jdbc:mysql://192.169.150.97:3306/sv";
             //  String url = "jdbc:postgresql://localhost:5432/lavapp";
             //   String url = "jdbc:postgresql://192.168.100.251:5432/lavapp";
             // CONECCION A LA BASE DE DATOS
